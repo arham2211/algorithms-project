@@ -327,14 +327,25 @@ class ClosestPairVisualizer:
                 # Plot closest points and their connecting line
                 self.ax.scatter([p1.x, p2.x], [p1.y, p2.y], c='orange', s=100, label='Closest Points')
                 self.ax.plot([p1.x, p2.x], [p1.y, p2.y], 'r--', label='Distance Line')
+                
+                # # Add annotations with coordinates
+                # self.ax.annotate(f'({p1.x:.2f}, {p1.y:.2f})',
+                #             (p1.x, p1.y),
+                #             xytext=(10, 10),
+                #             textcoords='offset points')
+                # self.ax.annotate(f'({p2.x:.2f}, {p2.y:.2f})',
+                #             (p2.x, p2.y),
+                #             xytext=(10, 10),
+                #             textcoords='offset points')
 
-            self.ax.set_title(f'Closest Pair of Points\nDistance: {min_dist:.2f}')
+            self.ax.set_title(f'Closest Pair of Points\nDistance: {min_dist:.2f}\n' +
+                            f'Point 1: ({p1.x:.2f}, {p1.y:.2f})\n' +
+                            f'Point 2: ({p2.x:.2f}, {p2.y:.2f})')
             self.ax.set_xlabel('X Coordinate')
             self.ax.set_ylabel('Y Coordinate')
             self.ax.grid(True)
             self.ax.legend()
 
-            # Enable mouse interaction
             self.canvas.draw()
 
         except Exception as e:
